@@ -19,11 +19,15 @@ function App() {
       return prevTodos.concat(newTodo);
     });
   };
-
+  const deteleTodoHandler = (TodoID: number) => {
+    setTodos((prevTodos) => {
+      return prevTodos.filter((todo) => todo.id !== TodoID);
+    });
+  };
   return (
     <div className="App">
       <NewTodo onAddTodo={addTodoHandler} />
-      <Todos items={todos} />
+      <Todos items={todos} onDeleteTodo={deteleTodoHandler} />
     </div>
   );
 }
