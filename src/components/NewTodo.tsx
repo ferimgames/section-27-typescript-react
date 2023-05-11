@@ -1,9 +1,10 @@
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import styles from "./NewTodo.module.css";
+import { TodosContext } from "../store/todos-context";
 
-const NewTodo: React.FC<{ onAddTodo: (todoText: string) => void }> = (
-  props
-) => {
+const NewTodo: React.FC = () => {
+
+  const todoCtx = useContext(TodosContext);
   const todoTextInput = useRef<HTMLInputElement>(null);
 
   const submitHanlder = (event: React.FormEvent) => {
@@ -12,7 +13,7 @@ const NewTodo: React.FC<{ onAddTodo: (todoText: string) => void }> = (
     const enteredTodoText = todoTextInput.current!.value;
 
     if (enteredTodoText.trim().length !== 0) {
-      props.onAddTodo(enteredTodoText);
+      todoCtx.addTodo(enteredTodoText);
       return;
     }
   };
