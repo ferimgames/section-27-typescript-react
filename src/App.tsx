@@ -1,9 +1,13 @@
 import "./App.css";
-import Todos from "./components/Todo";
-
-const DUMMY_ITEMS = ["Learn React", "Learn JS", "Learn TW"];
+import Todos from "./components/Todos";
+import TodoModule from "./modules/todo";
 
 function App() {
+  const DUMMY_ITEMS = [
+    new TodoModule("Learn React"),
+    new TodoModule("Learn JS"),
+    new TodoModule("Learn TW"),
+  ];
   return (
     <div className="App">
       <Todos items={DUMMY_ITEMS} />
