@@ -5,7 +5,7 @@ class Todo {
 
   constructor(todoText: string) {
     this.text = todoText;
-    this.id = hashCode(todoText);
+    this.id = hashCode(todoText) + Math.random();
   }
 }
 
